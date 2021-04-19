@@ -1,0 +1,55 @@
+# Project: SnakeProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o game.o linkedlist.o snake.o renderer.o menu.o heapsort.o utility.o tree.o queuestack.o
+LINKOBJ  = main.o game.o linkedlist.o snake.o renderer.o menu.o heapsort.o utility.o tree.o queuestack.o
+LIBS     = -L"F:/Windows/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -lbgi -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -m32
+INCS     = -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/include" -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/include" -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"F:/Windows/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = SnakeProject.exe
+CXXFLAGS = $(CXXINCS) -m32 -lbgi
+CFLAGS   = $(INCS) -m32 -lbgi
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+game.o: game.cpp
+	$(CPP) -c game.cpp -o game.o $(CXXFLAGS)
+
+linkedlist.o: linkedlist.cpp
+	$(CPP) -c linkedlist.cpp -o linkedlist.o $(CXXFLAGS)
+
+snake.o: snake.cpp
+	$(CPP) -c snake.cpp -o snake.o $(CXXFLAGS)
+
+renderer.o: renderer.cpp
+	$(CPP) -c renderer.cpp -o renderer.o $(CXXFLAGS)
+
+menu.o: menu.cpp
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS)
+
+heapsort.o: heapsort.cpp
+	$(CPP) -c heapsort.cpp -o heapsort.o $(CXXFLAGS)
+
+utility.o: utility.cpp
+	$(CPP) -c utility.cpp -o utility.o $(CXXFLAGS)
+
+tree.o: tree.cpp
+	$(CPP) -c tree.cpp -o tree.o $(CXXFLAGS)
+
+queuestack.o: queuestack.cpp
+	$(CPP) -c queuestack.cpp -o queuestack.o $(CXXFLAGS)
